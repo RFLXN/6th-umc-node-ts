@@ -1,0 +1,16 @@
+version: '3.1'
+
+services:
+  mysql:
+    container_name: mysql
+    image: mysql:latest
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: node_workbook
+      MYSQL_USER: node_workbook
+      MYSQL_PASSWORD: node_workbook
+    ports:
+      - "3306:3306"
+    volumes:
+      - "./table/table-scheme.sql:/docker-entrypoint-initdb.d/table-scheme.sql"
