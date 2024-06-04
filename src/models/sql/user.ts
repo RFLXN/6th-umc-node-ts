@@ -1,0 +1,13 @@
+export const INSERT_USER = "INSERT INTO USER (EMAIL, PASSWORD, USERNAME)"
+    + " VALUES (?, ?, ?);";
+
+export const INSERT_USER_WITH_GENDER = "INSERT INTO USER (EMAIL, PASSWORD, USERNAME, GENDER)"
+    + " VALUES (?, ?, ?, ?);";
+
+export const SELECT_USER_BY_ID = "SELECT * FROM USER WHERE ID = ?;";
+
+export const SELECT_USER_BY_EMAIL = "SELECT * FROM USER WHERE EMAIL = ?;";
+
+export const SELECT_IS_EXIST_EMAIL = "SELECT EXISTS(SELECT 1 FROM USER WHERE email = ?) as IS_EXIST_EMAIL;";
+
+// PREFER는 생략하고 진행

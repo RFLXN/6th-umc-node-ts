@@ -3,7 +3,8 @@ import { BaseApiResponse } from "./response";
 
 export type ResponseType = "SUCCESS" | "INTERNAL_SERVER_ERROR"
     | "BAD_REQUEST" | "UNAUTHORIZED" | "METHOD_NOT_ALLOWED" | "FORBIDDEN"
-    | "MEMBER_NOT_FOUND" | "NICKNAME_NOT_EXIST" | "ARTICLE_NOT_FOUND";
+    | "MEMBER_NOT_FOUND" | "NICKNAME_NOT_EXIST" | "ARTICLE_NOT_FOUND"
+    | "PARAMETER_IS_WRONG" | "EMAIL_ALREADY_EXIST";
 
 
 export type ResponseWithStatus = {
@@ -47,5 +48,13 @@ export const status: Record<ResponseType, ResponseWithStatus> = {
     ARTICLE_NOT_FOUND: {
         status: StatusCodes.NOT_FOUND,
         body: { isSuccess: false, code: "ARTICLE4001", message: "게시글이 없습니다." }
+    },
+    PARAMETER_IS_WRONG: {
+        status: StatusCodes.BAD_REQUEST,
+        body: { isSuccess: false, code: "COMMON005", message: "잘못된 값입니다." }
+    },
+    EMAIL_ALREADY_EXIST: {
+        status: StatusCodes.BAD_REQUEST,
+        body: { isSuccess: false, code: "SIGNUP001", message: "이미 존재하는 이메일입니다." }
     }
 };
