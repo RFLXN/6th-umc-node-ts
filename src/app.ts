@@ -6,6 +6,7 @@ import { status } from "./configs/response.status";
 import { userRouter } from "./routes/user";
 import { serve, setup } from "swagger-ui-express";
 import specs from "./configs/swagger.config";
+import { storeRouter } from "./routes/store";
 
 export default function initApp() {
     const app = express();
@@ -18,6 +19,7 @@ export default function initApp() {
     app.use("/", rootRouter);
     app.use("/temp", tempRouter);
     app.use("/user", userRouter);
+    app.use("/store", storeRouter);
 
     app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
         if (err instanceof ApiError) {
