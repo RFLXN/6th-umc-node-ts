@@ -1,0 +1,13 @@
+export const SELECT_STORE_REVIEW_BY_STORE_ID = "SELECT "
+    + "R.ID AS ID, "
+    + "R.STORE_ID AS STORE_ID, "
+    + "R.USER_ID AS USER_ID, "
+    + "R.RATING AS RATING, "
+    + "R.CONTENT AS CONTENT, "
+    + "U.EMAIL AS USER_EMAIL, "
+    + "U.USERNAME AS USER_NAME, "
+    + "U.GENDER AS USER_GENDER "
+    + "FROM STORE_REVIEW R "
+    + "JOIN USER U ON  R.USER_ID = U.ID "
+    + "WHERE STORE_ID = ? "
+    + "LIMIT ?, ?;";
